@@ -1,21 +1,63 @@
+<header class="navbar navbar-expand-lg bg-dark">
+  <a class="navbar-brand text-light" href="home"><i class="fab fa-wikipedia-w"></i><strong>hiteboard</strong></a>
+</header>
 <div class="container-fluid">
-  <h1>Register</h1>
-
-  <input [(ngModel)]="username"
-         placeholder="username"
-         class="form-control"/>
-  <input [(ngModel)]="password"
-         placeholder="password"
-         class="form-control"/>
-  <input [(ngModel)]="password2"
-         placeholder="verify password"
-         class="form-control"/>
-  <button (click)="register(username, password, password2)"
-          class="btn btn-primary btn-block">
-    Register
-  </button>
-
-  <a routerLink="/login">Login</a>
-  <a routerLink="/home">Home</a>
-
+  <div class="container mt-4">
+    <div class="card">
+      <div class="row">
+        <div class="col-md">
+          <div class="card-body bg-dark">
+            <div class="col-sm">
+              <div class="card-title">
+                <h1 class="text-center text-light">Sign Up</h1>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-light" for="usernameFld">Username:</label>
+                <div class="col-sm-8">
+                  <input id="usernameFld" [(ngModel)]="username" type="text" class="form-control"
+                         name="username">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-light" for="passwordFld">Password:</label>
+                <div class="col-sm-8">
+                  <input id="passwordFld" type="password" [(ngModel)]="password" class="form-control"
+                         [ngClass]="{'border-danger': invalid == true}" name="password"
+                         required="required">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label text-light" for="verifyPasswordFld">Verify Password:</label>
+                <div class="col-sm-8">
+                  <input id="verifyPasswordFld" type="password" [(ngModel)]="password2"
+                         class="form-control"
+                         name="verifyPassword" [ngClass]="{'border-danger': invalid == true}"
+                         (ngModelChange)="validatePassword(password2)">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-2 col-form-label"></div>
+                <div class="col-sm-8">
+                  <button class="btn btn-light btn-lg btn-block font-weight-bold"
+                          (click)="register(username,password,password2)">Sign Up
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer bg-light">
+            <div class="row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-4">
+                <a class="bl-link font-weight-bold" routerLink="/login">Login</a>
+              </div>
+              <div class="col-sm-4">
+                <a class="bl-link font-weight-bold float-right" routerLink="/home">Home</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

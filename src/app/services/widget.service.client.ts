@@ -1,6 +1,6 @@
 export class WidgetServiceClient {
-  findWidgetsForLesson(lessonId) {
-    return fetch('http://localhost:8080/api/lesson/' + lessonId + '/widget')
+  findWidgetsForTopic(topicId) {
+    return fetch('http://localhost:8080/api/topic/' + topicId + '/widgets')
       .then(response => response.json());
   }
 }

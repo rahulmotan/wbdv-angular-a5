@@ -1,4 +1,16 @@
 export class UserServiceClient {
+  AUTH_URL = 'http://localhost:4000/api/user/auth';
+  updateUser(user) {
+    return fetch('http://localhost:4000/api/user/update', {
+      method: 'PUT',
+      credentials: 'include',
+      body: JSON.stringify(user),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(response => response.json());
+  }
 
   findUserById(userId) {
     return fetch('http://localhost:4000/api/user/' + userId)
@@ -17,7 +29,7 @@ export class UserServiceClient {
       headers: {
         'content-type': 'application/json'
       }
-    });
+    }).then(response => response.json());
   }
 
   logout() {
@@ -48,5 +60,11 @@ export class UserServiceClient {
         'content-type': 'application/json'
       }
     });
+  }
+
+  authenticate() {
+    return fetch(this.AUTH_URL, {
+      credentials: 'include'
+    }).then(response => (response.json()));
   }
 }

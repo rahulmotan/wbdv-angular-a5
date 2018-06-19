@@ -1,33 +1,108 @@
-<div class="container-fluid">
-  <h1>Profile</h1>
+<header class="navbar navbar-expand-lg bg-dark">
+  <a class="navbar-brand text-light" href="home"><i class="fab fa-wikipedia-w"></i><strong>hiteboard</strong></a>
+</header>
+<div class="container-fluid bg-light justify-content-center" style="min-height:available">
+  <div class="container bg-dark mt-4" style="border-radius: 25px">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="text-light text-center" style="font-family: 'Dubai Medium'">Profile</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <form>
+          <div class="form-group row">
+            <label for="username" class="col-sm-2 col-form-label text-light">
+              Username </label>
+            <div class="col-sm-8">
+              <input [(ngModel)]="username" class="form-control" id="username"
+                     placeholder="Alice"
+                     required [ngModelOptions]="{standalone: true}" disabled="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="password" class="col-sm-2 col-form-label text-light">
+              New Password </label>
+            <div class="col-sm-8">
+              <input type="password" [(ngModel)]="password" class="form-control" id="password"
+                     placeholder="new password"
+                     required [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="username" class="col-sm-2 col-form-label text-light">
+              First Name </label>
+            <div class="col-sm-8">
+              <input [(ngModel)]="firstName" class="form-control" id="firstName"
+                     placeholder="Alice"
+                     required [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="lastName" class="col-sm-2 col-form-label text-light">
+              Last Name </label>
+            <div class="col-sm-8">
+              <input [(ngModel)]="lastName" class="form-control" id="lastName"
+                     placeholder="Jones"
+                     required [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="phone" class="col-sm-2 col-form-label text-light">
+              Phone </label>
+            <div class="col-sm-8">
+              <input type="text" [(ngModel)]="phone" class="form-control wbdv-phone-fld"
+                     id="phone" placeholder="(617) 707-1593" required [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label text-light">
+              Email </label>
+            <div class="col-sm-8">
+              <input type="email" [(ngModel)]="email" class="form-control wbdv-email-fld"
+                     id="email" placeholder="abc@example.com" required [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="address" class="col-sm-2 col-form-label text-light">
+              Address </label>
+            <div class="col-sm-8">
+              <input [(ngModel)]="address" class="form-control" id="address"
+                     placeholder="AptNo HouseNo Street State Country"
+                     required [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
 
-  <input [(ngModel)]="username"
-         placeholder="username"
-         class="form-control"/>
-  <input [(ngModel)]="firstName"
-         placeholder="first name"
-         class="form-control"/>
-  <input [(ngModel)]="lastName"
-         placeholder="lastName"
-         class="form-control"/>
-  <input [(ngModel)]="email"
-         placeholder="email"
-         class="form-control"/>
-  <button (click)="update()"
-          class="btn btn-primary btn-block">
-    Update
-  </button>
-
-  <h2>Sections ({{sections.length}})</h2>
-
-  <ul class="list-group">
-    <li *ngFor="let enrollment of sections" class="list-group-item">
-      {{enrollment.section.name}}
-      ({{enrollment.section.seats}})
-    </li>
-  </ul>
-
-  <a (click)="logout()">Logout</a>
-  <a routerLink="/home">Home</a>
-
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label text-light"></label>
+            <div class="col-sm-8">
+              <button type="button" class="btn btn-success btn-block btn-update" (click)="update()">Update</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container bg-dark mt-4">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>Sections ({{sections.length}})</h2>
+      </div>
+      <ul class="list-group">
+        <li *ngFor="let enrollment of sections" class="list-group-item">
+          {{enrollment.section.name}}
+          ({{enrollment.section.seats}})
+        </li>
+      </ul>
+      <div class="row">
+        <div class="col-4">
+          <a (click)="logout()">Logout</a>
+        </div>
+        <div class="col-4">
+          <a routerLink="/home">Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

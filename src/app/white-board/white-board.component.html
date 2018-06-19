@@ -1,10 +1,11 @@
-<div class="container-fluid">
-  <h1>
-    White Board
-  </h1>
+<header class="navbar navbar-expand-lg bg-dark">
+  <a class="navbar-brand text-light" href="home"><i class="fab fa-wikipedia-w"></i><strong>hiteboard</strong></a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item" [hidden]="!isLoggedIn"><a class="nav-link nav-item-link" routerLink="/logout">Logout</a></li>
+    <li class="nav-item" [hidden]="isLoggedIn"><a class="nav-link nav-item-link" routerLink="/login">Login</a></li>
+    <li class="nav-item" [hidden]="isLoggedIn"><a class="nav-link nav-item-link" routerLink="/register">Register</a>
+    </li>
+  </ul>
+</header>
+<app-course-grid></app-course-grid>
 
-  <a routerLink="/login">Login</a>
-  <a routerLink="/register">Register</a>
-
-  <app-course-grid></app-course-grid>
-</div>
