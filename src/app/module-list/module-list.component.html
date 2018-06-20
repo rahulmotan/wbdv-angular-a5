@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-4">
+<div class="row mb-4">
+  <div class="col-md-4 pb-2">
     <ul class="list-group">
       <li class="list-group-item bg-active"><span class="text-light font-weight-bold">Modules</span></li>
       <li [ngClass]="{'sel-li': module.id == moduleId}" *ngFor="let module of modules"
@@ -9,7 +9,7 @@
       </li>
     </ul>
   </div>
-  <div class="col-8">
+  <div class="col-md-8 bg-dark" style="border-radius: 10px">
     <app-lesson-tabs></app-lesson-tabs>
   </div>
 </div>

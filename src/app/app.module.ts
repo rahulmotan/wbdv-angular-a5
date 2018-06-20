@@ -44,7 +44,6 @@ import { AdminConsoleComponent } from './admin-console/admin-console.component';
     ProfileComponent,
     SectionListComponent,
     TopicListComponent,
-    TopicAccordianComponent,
     AdminConsoleComponent
   ],
   imports: [

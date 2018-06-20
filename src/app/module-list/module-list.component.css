@@ -7,13 +7,13 @@
 }
 
 .bg-active {
-  background-color: black;
-  border-color:black;
+  background-color: #343a40;
+  border-color:#343a40;
 }
 
 .list-group-item.sel-li{
-  background-color: black;
-  border-color:black;
+  background-color: #343a40;
+  border-color:#343a40;
   color:white!important;
 }
 .sel-li a {
@@ -23,6 +23,6 @@
 }
 
 a {
-  color: black;
+  color:#343a40;
   font-weight: bold;
 }

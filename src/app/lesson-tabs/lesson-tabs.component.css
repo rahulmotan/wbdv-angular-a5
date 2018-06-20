@@ -1,0 +1,28 @@
+.mod-link a {
+  color: white ;
+}
+
+.active.wbdv a {
+  color: white;
+}
+
+.bg-active {
+  background-color: #343a40;
+  border-color:#343a40;
+}
+
+.nav-link.sel-li{
+  background-color: white;
+  border-color:white;
+  color:black!important;
+}
+.sel-li a {
+  color: white;
+  font-family: "Lucida Console";
+  font-weight: bolder;
+}
+
+a {
+  color:white;
+  font-weight: bold;
+}

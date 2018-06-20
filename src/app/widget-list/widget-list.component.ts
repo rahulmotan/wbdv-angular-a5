@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {WidgetServiceClient} from "../services/widget.service.client";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {WidgetServiceClient} from '../services/widget.service.client';
 
 @Component({
   selector: 'app-widget-list',
@@ -16,16 +16,37 @@ export class WidgetListComponent implements OnInit {
 
   context;
   widgets = [];
+  orderedListItems = [];
+  unorderedListItems = [];
+
   setContext(params) {
     this.context = params;
     this.loadWidgets(params.topicId);
   }
+
   loadWidgets(topicId) {
     this.service.findWidgetsForTopic(topicId)
-      .then(widgets => this.widgets = widgets);
+      .then(widgets => this.widgets = widgets)
+      .then((widgets) => {
+        console.log(widgets);
+        if (this.widgets.length > 0) {
+          widgets.map(widget => {
+            if (widget.widgetType == 'ListWidget') {
+              if (widget.listType == 'ordered') {
+                this.orderedListItems = widget.listItems.split(' ');
+                console.log(this.orderedListItems);
+              } else {
+                this.unorderedListItems = widget.listItems.split(' ');
+                console.log(this.unorderedListItems);
+              }
+            }
+          });
+        }
+      });
   }
 
   ngOnInit() {
+
   }
 
 }

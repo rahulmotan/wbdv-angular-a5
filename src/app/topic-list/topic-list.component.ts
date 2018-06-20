@@ -18,12 +18,15 @@ export class TopicListComponent implements OnInit {
   moduleId;
   lessonId;
   courseId;
+  topicId;
   topics = [];
 
   setParams(params) {
     this.courseId = params['courseId'];
     this.moduleId = params['moduleId'];
     this.lessonId = params['lessonId'];
+    this.topicId = params['topicId'];
+    console.log(this.topicId);
     this.loadTopics(this.lessonId);
   }
 

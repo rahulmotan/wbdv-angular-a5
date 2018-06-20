@@ -1,12 +1,14 @@
-<nav class="navbar navbar-expand-lg">
-  <ul class="navbar-nav nav-tabs justify-content-end">
-    <li class="nav-item" *ngFor="let topic of topics">
-      <a class="nav-link"
-         [ngClass]="{'active': topic.id === topicId}"
+<div class="container mb-4">
+  <div class="row my-3">
+    <div *ngFor="let topic of topics" class="d-inline mr-1" style="border-radius: 10px">
+      <a [ngClass]="{'sel-li':topic.id == topicId}" class="my-auto p-2 disabled"
          routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lessonId}}/topic/{{topic.id}}">
-        {{topic.title}}
-      </a>
-    </li>
-  </ul>
-</nav>
-<app-topic-accordian></app-topic-accordian>
+        {{topic.title}}</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <app-widget-list></app-widget-list>
+    </div>
+  </div>
+</div>
