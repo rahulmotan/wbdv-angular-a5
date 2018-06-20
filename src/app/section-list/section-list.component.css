@@ -1,0 +1,12 @@
+.nav-item-link {
+  color: white;
+}
+
+a.nav-item-link {
+  color: white;
+}
+
+a:hover.nav-item-link{
+  color: white;
+  cursor: pointer;
+}

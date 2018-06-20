@@ -1,7 +1,11 @@
-.wh-link{
+.wh-link {
   color: white;
 }
 
 .bl-link {
   color: black;
+}
+
+.nav-item-link {
+  color: white;
 }

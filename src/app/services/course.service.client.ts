@@ -17,4 +17,14 @@ export class CourseServiceClient {
       credentials: 'include'
     }).then(response => (response.json()));
   }
+
+  findEnrolledCoursesForStudent(courseIds) {
+    return fetch(this.COURSE_URL + 's', {
+      method: 'POST',
+      body: JSON.stringify(courseIds),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then((response) => (response.json()));
+  }
 }

@@ -26,6 +26,7 @@ import {SectionServiceClient} from './services/section.service.client';
 import { TopicListComponent } from './topic-list/topic-list.component';
 import {TopicServiceClient} from './services/topic.service.client';
 import { TopicAccordianComponent } from './topic-accordian/topic-accordian.component';
+import { AdminConsoleComponent } from './admin-console/admin-console.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { TopicAccordianComponent } from './topic-accordian/topic-accordian.compo
     ProfileComponent,
     SectionListComponent,
     TopicListComponent,
-    TopicAccordianComponent
+    TopicAccordianComponent,
+    AdminConsoleComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 export class UserServiceClient {
-  AUTH_URL = 'http://localhost:4000/api/user/auth';
+  AUTH_URL = 'http://localhost:4000/api/auth';
   updateUser(user) {
     return fetch('http://localhost:4000/api/user/update', {
       method: 'PUT',

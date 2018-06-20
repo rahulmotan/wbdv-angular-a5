@@ -6,8 +6,7 @@ export class SectionServiceClient {
     const url = 'http://localhost:4000/api/student/section';
     return fetch(url, {
       credentials: 'include'
-    })
-      .then(response => response.json());
+    }).then(response => response.json());
   }
 
   enrollStudentInSection(sectionId) {

@@ -94,7 +94,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this
       .service.profile()
-      .then(user => {
+      .then(users => {
+        const user = users[0];
+        console.log(user);
         if (this.validateProfileForm(user)) {
           this.username = user.username;
           this.password = user.password;
@@ -107,9 +109,10 @@ export class ProfileComponent implements OnInit {
         this.username = user.username;
       });
 
-// this.sectionService
-//   .findSectionsForStudent()
-//   .then(sections => this.sections = sections);
+    this.sectionService
+      .findSectionsForStudent()
+      .then(sections => this.sections = sections)
+      .then(() => console.log(this.sections));
   }
 
 }

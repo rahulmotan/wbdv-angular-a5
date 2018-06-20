@@ -1,8 +1,28 @@
-.active.wbdv {
-  background-color: red;
-  border-color: red;
+.mod-link a {
+  color: white ;
 }
 
 .active.wbdv a {
   color: white;
+}
+
+.bg-active {
+  background-color: black;
+  border-color:black;
+}
+
+.list-group-item.sel-li{
+  background-color: black;
+  border-color:black;
+  color:white!important;
+}
+.sel-li a {
+  color: white;
+  font-family: "Lucida Console";
+  font-weight: bolder;
+}
+
+a {
+  color: black;
+  font-weight: bold;
 }

@@ -1,4 +1,18 @@
+<header class="navbar navbar-expand-lg bg-dark mb-4">
+  <a class="navbar-brand text-light" href="home"><i class="fab fa-wikipedia-w"></i><strong>hiteboard</strong></a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link text-light disabled"><h4 class="m-0">{{course.title}}</h4></a>
+    </li>
+    <li class="nav-item">
+      <a class="btn btn-link nav-link nav-item-link" routerLink="/home"><span
+        class="font-weight-bold">Home</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="btn btn-link nav-link nav-item-link" (click)="logout()"><span class="font-weight-bold">Logout</span></a>
+    </li>
+  </ul>
+</header>
 <div class="container-fluid">
-  <h2>{{course.title}}</h2>
   <app-module-list></app-module-list>
 </div>

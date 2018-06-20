@@ -39,7 +39,7 @@
                 <div class="col-sm-2 col-form-label"></div>
                 <div class="col-sm-8">
                   <button class="btn btn-light btn-lg btn-block font-weight-bold"
-                          (click)="register(username,password,password2)">Sign Up
+                          (click)="register(username,password,password2)" [disabled]="invalid">Sign Up
                   </button>
                 </div>
               </div>
