@@ -5,6 +5,7 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ProfileComponent} from './profile/profile.component';
 import {SectionListComponent} from './section-list/section-list.component';
+import {AdminConsoleComponent} from './admin-console/admin-console.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -17,6 +18,8 @@ const appRoutes: Routes = [
   {path: 'course/:courseId/module/:moduleId', component: CourseViewerComponent},
   {path: 'course/:courseId/module/:moduleId/lesson/:lessonId/topic/:topicId', component: CourseViewerComponent},
   {path: 'course/:courseId/module/:moduleId/lesson/:lessonId', component: CourseViewerComponent},
+  {path: 'admin', component: AdminConsoleComponent},
+  {path: 'admin/course/:courseId', component: AdminConsoleComponent},
   {path: '**', component: WhiteBoardComponent} // last
 ];
 export const routing = RouterModule.forRoot(appRoutes);

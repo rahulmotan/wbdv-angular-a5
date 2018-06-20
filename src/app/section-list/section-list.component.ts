@@ -30,6 +30,11 @@ export class SectionListComponent implements OnInit {
       .findSectionsForCourse(courseId)
       .then(sections => this.sections = sections);
   }
+  logout() {
+    this.authService.logout()
+      .then(() =>
+        this.router.navigate(['login']));
+  }
 
   createSection(sectionName, seats) {
     this

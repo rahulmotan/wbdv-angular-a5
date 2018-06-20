@@ -14,8 +14,8 @@
           </div>
           <div class="card-footer">
             <a routerLink="/course"
-               class="btn btn-dark mr-2 my-auto">Go somewhere <i class="fa fa-caret-right"></i></a>
-            <a routerLink="/course/{{ecourse.id}}/section"
+               class="btn btn-dark pr-2 my-auto">View<i class="fa fa-caret-right pl-2"></i></a>
+            <a [hidden]="isEnrolled" routerLink="/course/{{ecourse.id}}/section"
                class="btn btn-dark my-auto">Enroll</a>
           </div>
         </div>
@@ -39,7 +39,7 @@
           </div>
           <div class="card-footer">
             <a routerLink="/course/{{course.id}}"
-               class="btn btn-dark mr-2 my-auto">Go somewhere <i class="fa fa-caret-right"></i></a>
+               class="btn btn-dark mr-2 my-auto">View <i class="fa fa-caret-right pl-2"></i></a>
             <a routerLink="/course/{{course.id}}/section"
                class="btn btn-dark my-auto">Enroll</a>
           </div>

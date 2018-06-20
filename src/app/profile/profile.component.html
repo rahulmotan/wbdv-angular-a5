@@ -1,6 +1,10 @@
 <header class="navbar navbar-expand-lg bg-dark">
   <a class="navbar-brand text-light" href="home"><i class="fab fa-wikipedia-w"></i><strong>hiteboard</strong></a>
   <ul class="navbar-nav ml-auto">
+    <li class="nav-item" [hidden]="!isAdmin">
+      <a class="btn btn-link nav-link nav-item-link" routerLink="/admin"><span
+        class="font-weight-bold">Admin Console</span></a>
+    </li>
     <li class="nav-item">
       <a class="btn btn-link nav-link nav-item-link" routerLink="/home"><span
         class="font-weight-bold">Home</span></a>
@@ -83,18 +87,30 @@
     </div>
     <div class="col-lg-6">
       <div class="container bg-dark my-4" style="border-radius: 14px">
-        <div class="row">
-          <div class="col-lg-12 mb-4">
-            <h1 class="text-light text-center" style="font-family: 'Dubai Medium'">Sections</h1>
-            <ul class="list-group">
-              <li *ngFor="let enrollment of sections" class="list-group-item">
-                {{enrollment.section.name}}
-                ({{enrollment.section.seats}})
-              </li>
-            </ul>
+        <div class="row" class="col-lg-12 mb-4">
+          <h1 class="text-light text-center" style="font-family: 'Dubai Medium'">Courses and Sections</h1>
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="list-group pb-4">
+                <li class="list-group-item" *ngFor="let course of enrolledCourses">
+                  <h5><a class="nav-item-link text-dark" routerLink="/course/{{course.id}}">{{course.title}}</a></h5>
+                  <ul class="list-group" *ngFor="let enrollment of sections">
+                    <li
+                      class="list-group-item border-top-1 border-bottom-0 border-left-0 border-right-0"
+                      style="border-radius: unset" *ngIf="enrollment.section.courseId == course.id">
+                      <div class="offset-1  font-weight-light">
+                        <i class="fa fa-arrow-right ml-0 pr-2"></i>{{enrollment.section.name}}
+                        ({{enrollment.section.seats}})
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {LessonServiceClient} from '../services/lesson.service.client';
+import {UserServiceClient} from '../services/user.service.client';
 
 @Component({
   selector: 'app-lesson-tabs',
@@ -10,6 +11,8 @@ import {LessonServiceClient} from '../services/lesson.service.client';
 export class LessonTabsComponent implements OnInit {
 
   constructor(private service: LessonServiceClient,
+              private userService: UserServiceClient,
+              private router: Router,
               private route: ActivatedRoute) {
     this.route.params.subscribe(
       params => this.setParams(params));
@@ -31,6 +34,11 @@ export class LessonTabsComponent implements OnInit {
     this.moduleId = moduleId;
     this.service.findLessonsForModule(courseId, moduleId)
       .then(lessons => this.lessons = lessons);
+  }
+  logout() {
+    this.userService.logout()
+      .then(() =>
+        this.router.navigate(['login']));
   }
 
   ngOnInit() {

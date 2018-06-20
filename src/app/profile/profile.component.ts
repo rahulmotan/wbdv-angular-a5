@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
 import {Router} from '@angular/router';
 import {SectionServiceClient} from '../services/section.service.client';
+import {CourseServiceClient} from '../services/course.service.client';
 
 @Component({
   selector: 'app-profile',
@@ -12,10 +13,13 @@ export class ProfileComponent implements OnInit {
 
   constructor(private service: UserServiceClient,
               private sectionService: SectionServiceClient,
+              private courseService: CourseServiceClient,
               private router: Router) {
   }
 
   id;
+  isAdmin;
+  isEnrolled;
   username;
   password;
   email;
@@ -35,6 +39,7 @@ export class ProfileComponent implements OnInit {
   };
 
   sections = [];
+  enrolledCourses = [];
 
   validateField(field) {
     return field !== undefined && field !== '';
@@ -112,7 +117,30 @@ export class ProfileComponent implements OnInit {
     this.sectionService
       .findSectionsForStudent()
       .then(sections => this.sections = sections)
-      .then(() => console.log(this.sections));
+      .then((sections) => (
+        this.extractAllCourseIdsFromSections()
+      )).then((courseIds) => {
+      this.courseService.findEnrolledCoursesForStudent(courseIds)
+        .then(courses => {
+          this.enrolledCourses = courses;
+          if (this.enrolledCourses.length > 0) {
+            this.isEnrolled = true;
+          }
+          console.log(courses);
+        });
+    });
+    this.service.authenticate()
+      .then(response => {
+        this.isAdmin = response.username !== undefined && response.username == 'admin';
+      });
+  }
+
+  extractAllCourseIdsFromSections() {
+    let courseIds = [];
+    courseIds = this.sections.map(value => {
+      return value.section.courseId;
+    });
+    return courseIds;
   }
 
 }

@@ -1,3 +1,80 @@
-<p>
-  admin-console works!
-</p>
+<header class="navbar navbar-expand-lg bg-dark">
+  <a class="navbar-brand text-light" href="home"><i class="fab fa-wikipedia-w"></i><strong>hiteboard</strong></a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="btn btn-link nav-link nav-item-link" routerLink="/profile"><span
+        class="font-weight-bold text-light">Profile</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="btn btn-link nav-link nav-item-link" routerLink="/home"><span
+        class="font-weight-bold text-light">Home</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="btn btn-link nav-link nav-item-link text-light" (click)="logout()"><span
+        class="font-weight-bold">Logout</span></a>
+    </li>
+  </ul>
+</header>
+<div class="row">
+  <div class="col-md-12 pl-1 pb-5">
+    <div class="d-flex flex-row bg-dark justify-content-start">
+      <div class="p-3" *ngFor="let course of allCourses">
+        <a class="font-weight-bold text-light" (click)="loadSections(course.id)">
+          {{course.title}}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6" *ngIf="courseId < 0">
+        <h3>Select a course from above to create sections</h3>
+      </div>
+      <div class="col-md-6" *ngIf="courseId >= 0">
+        <div class="card">
+          <div class="card-title"><h5 class="p-2">Available Sections ({{sections.length}})</h5></div>
+          <div class="card-body">
+            <ul class="list-group" *ngFor="let section of sections">
+              <li class="list-group-item">
+                <a class="text-dark" (click)="selectSection(section)"><span
+                  class="font-weight-bold">{{section.name}}</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-dark btn-block" (click)="createSection()">Add Section</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="container">
+          <div class="card">
+            <div class="card-title"><h5 class="p-2 text-center">{{sectionName}}</h5></div>
+            <div class="card-body">
+              <input [(ngModel)]="sectionName"
+                     placeholder="Section Name"
+                     class="form-control p-2"/>
+              <input [(ngModel)]="seats"
+                     placeholder="Total Capacity"
+                     class="form-control p-2"/>
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col-md-6">
+                  <button (click)="updateSection(sectionName, seats)" class="btn btn-success btn-block">
+                    Update
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <button (click)="updateSection(sectionName, seats)" class="btn btn-danger btn-block">
+                    <i class="fa fa-trash p-1"></i>Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
