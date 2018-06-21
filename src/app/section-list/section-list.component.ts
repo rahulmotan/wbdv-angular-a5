@@ -19,7 +19,7 @@ export class SectionListComponent implements OnInit {
               private route: ActivatedRoute) {
     this.route.params.subscribe(params => this.loadSections(params['courseId']));
   }
-
+  
   isAdmin = false;
   sectionName = '';
   seats = 0;
