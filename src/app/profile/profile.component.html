@@ -100,7 +100,7 @@
                       style="border-radius: unset" *ngIf="enrollment.section.courseId == course.id">
                       <div class="offset-1  font-weight-light">
                         <i class="fa fa-arrow-right ml-0 pr-2"></i>{{enrollment.section.name}}
-                        ({{enrollment.section.seats}})
+                        ({{enrollment.section.availableSeats}}/{{enrollment.section.seats}})
                       </div>
                     </li>
                   </ul>

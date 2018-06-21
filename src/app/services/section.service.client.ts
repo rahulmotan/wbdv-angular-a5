@@ -2,6 +2,22 @@ export class SectionServiceClient {
 
   SECTION_URL = 'http://localhost:4000/api/course/COURSEID/section';
 
+  deroll(sectionId) {
+    const url = 'http://localhost:4000/api/section/' + sectionId + '/deregister';
+    return fetch(url, {
+      method: 'DELETE',
+      credentials: 'include',
+    });
+  }
+
+  deleteSection(sectionId) {
+    const url = 'http://localhost:4000/api/section/SECTIONID/delete';
+    return fetch(url.replace('SECTIONID', sectionId), {
+      method: 'DELETE',
+      credentials: 'include'
+    });
+  }
+
   updateSection(section, sectionId, courseId) {
     const url = 'http://localhost:4000/api/course/' + courseId + '/section/SECTION_ID/update';
     return fetch(url.replace('SECTION_ID', sectionId), {

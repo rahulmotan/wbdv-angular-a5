@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CourseServiceClient} from '../services/course.service.client';
 import {Course} from '../models/coruse.model.client';
 import {SectionServiceClient} from '../services/section.service.client';
+import {UserServiceClient} from '../services/user.service.client';
 
 @Component({
   selector: 'app-course-grid',
@@ -10,7 +11,9 @@ import {SectionServiceClient} from '../services/section.service.client';
 })
 export class CourseGridComponent implements OnInit {
 
-  constructor(private service: CourseServiceClient, private sectionService: SectionServiceClient) {
+  constructor(private service: CourseServiceClient,
+              private sectionService: SectionServiceClient,
+              private userService: UserServiceClient) {
   }
 
   courseIds = [];
